@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'Abril Fatface', serif, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+}
+
+
+* {
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.custom-wave {
+  display: inline-block;
+  animation: customWave 1.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes customWave {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(20deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
+/* Fade animation for dynamic text */
+.fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+/* Apply 3D effect to the text */
+.text-3d-effect {
+  position: relative;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #ff007f, #7928ca);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  /* Adding layered shadow to simulate a 3D look */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4), 
+               6px 6px 10px rgba(0, 0, 0, 0.3), 
+               10px 10px 15px rgba(0, 0, 0, 0.2), 
+               15px 15px 20px rgba(0, 0, 0, 0.1);
+  animation: textAnimate 2s ease-out 1;  /* Initial animation for 3D effect */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Define the animation for the 3D effect */
+@keyframes textAnimate {
+  0% {
+    transform: translateZ(-100px); /* Start with the text far away */
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0px); /* End at normal position */
+    opacity: 1;
+  }
+}
+
+/* Hover effect to give the text a more interactive 3D feel */
+.text-3d-effect:hover {
+  transform: translateZ(30px) rotateX(10deg) rotateY(15deg); /* Stronger 3D movement */
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5), 
+               8px 8px 12px rgba(0, 0, 0, 0.4), 
+               15px 15px 20px rgba(0, 0, 0, 0.3), 
+               20px 20px 25px rgba(0, 0, 0, 0.2);
+}
+
+canvas {
+  filter: drop-shadow(0px 0px 10px rgba(125, 60, 255, 0.8)); /* Adds slight glow */
+}
+
+
+
